@@ -1,6 +1,8 @@
 package pl.put.poznan.shop.implementation;
 
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.put.poznan.shop.entity.Product;
 import pl.put.poznan.shop.repository.ProductRepository;

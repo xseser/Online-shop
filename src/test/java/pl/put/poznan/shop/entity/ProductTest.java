@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Bean;
+import pl.put.poznan.shop.implementation.ProductServiceImpl;
 import pl.put.poznan.shop.repository.ProductRepository;
+import pl.put.poznan.shop.service.ProductService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ProductTest {
     @Autowired
     private ProductRepository productRepository;
+
 
     @Test
     public void checkIfProductWithIdOneExists(){
@@ -24,4 +28,13 @@ class ProductTest {
     public void checkIfProductWithIdTwoExists(){
         assertEquals(productRepository.existsProductById(2L), true);
     }
+
+//    @Test
+//    public void someTestSample(){
+//        Long productId;
+//        System.out.println(productService.findProduct(1L));
+//    }
+
+
+
 }
