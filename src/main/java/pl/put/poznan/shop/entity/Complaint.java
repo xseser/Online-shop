@@ -21,6 +21,8 @@ public class Complaint {
     @Column(name = "complaint_date", nullable = false)
     private LocalDate complaintDate;
 
-    @Column(name = "status", nullable = false)
-    private Long status;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status", referencedColumnName = "id", nullable = false)
+    private ComplaintType complaintType;
+
 }
