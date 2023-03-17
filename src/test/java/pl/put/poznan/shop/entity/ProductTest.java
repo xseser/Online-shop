@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import pl.put.poznan.shop.repository.ProductRepository;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ProductTest {
@@ -14,7 +16,12 @@ class ProductTest {
     private ProductRepository productRepository;
 
     @Test
-    public void testCreateProduct(){
-        productRepository.findProductById(1L);
+    public void checkIfProductWithIdOneExists(){
+        assertEquals(productRepository.existsProductById(1L), true);
+    }
+
+    @Test
+    public void checkIfProductWithIdTwoExists(){
+        assertEquals(productRepository.existsProductById(2L), true);
     }
 }

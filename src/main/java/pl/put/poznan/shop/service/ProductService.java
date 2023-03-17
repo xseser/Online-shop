@@ -7,4 +7,6 @@ public interface ProductService {
     Product checkProduct(String name, String category);
 
     Product findProduct(Long id);
+
+    Boolean existsProduct(Long id);;
 }

@@ -20,4 +20,9 @@ public class ProductServiceImpl implements ProductService {
     public Product findProduct(Long id){
         return productRepository.findProductById(id);
     }
+
+    @Override
+    public Boolean existsProduct(Long id){
+        return productRepository.existsProductById(id);
+    }
 }
