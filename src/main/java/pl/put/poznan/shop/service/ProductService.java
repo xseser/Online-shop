@@ -5,4 +5,6 @@ import pl.put.poznan.shop.entity.Product;
 public interface ProductService {
 
     Product checkProduct(String name, String category);
+
+    Product findProduct(Long id);
 }

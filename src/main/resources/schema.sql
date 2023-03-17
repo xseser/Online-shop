@@ -186,3 +186,6 @@ create table online_shop.receipts
     constraint fk__receipts__carts__cart_id foreign key (cart_id) references online_shop.carts (user_id),
     constraint fk__receipts__payments__payment_id foreign key (payment_id) references online_shop.payments (id)
 );
+
+
+select * from online_shop.products where category = 'sweets' and name = 'cookie'

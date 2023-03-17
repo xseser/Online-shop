@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "promotions")
+@Table(name = "promotions", schema = "online_shop")
 public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
