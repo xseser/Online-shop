@@ -18,16 +18,24 @@ class ProductTest {
     private ProductRepository productRepository;
 
     @Test
-    public void checkIfProductWithIdOneExists(){
+    public void checkIfProductWithIdOneExists() {
         assertEquals(productRepository.existsProductById(1L), true);
     }
 
     @Test
-    public void checkIfProductWithIdTwoExists(){
+    public void checkIfProductWithIdTwoExists() {
         assertEquals(productRepository.existsProductById(2L), true);
     }
 
+    @Test
+    public void checkIfProductWithIdThreeExists() {
+        assertEquals(productRepository.existsProductById(3L), false);
+    }
 
+    @Test
+    public void checkIfProductWithNameCookieAndCategorySweetsExists() {
+        assertEquals(productRepository.existsProductByNameAndCategory("cookie", "sweets"), true);
+    }
 
 
 }
