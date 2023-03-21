@@ -8,6 +8,8 @@ import pl.put.poznan.shop.entity.Product;
 import pl.put.poznan.shop.repository.ProductRepository;
 import pl.put.poznan.shop.service.ProductService;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ProductServiceImpl implements ProductService {
@@ -26,5 +28,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Boolean existsProduct(Long id){
         return productRepository.existsProductById(id);
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 }
