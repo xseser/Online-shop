@@ -8,30 +8,32 @@ import pl.put.poznan.shop.entity.Product;
 import pl.put.poznan.shop.repository.ProductRepository;
 import pl.put.poznan.shop.service.ProductService;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Service
 @AllArgsConstructor
+@Service
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
-    public Product checkProduct(String name, String category) {
-        return productRepository.findProductByCategoryAndName(name, category);
-    }
-
-    @Override
-    public Product findProduct(Long id){
-        return productRepository.findProductById(id);
-    }
-
-    @Override
-    public Boolean existsProduct(Long id){
-        return productRepository.existsProductById(id);
-    }
-
-    @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Product createProduct(String name, String category, Long weight,Long productCount, Long price) {
+        Product product = new Product();
+        product.setName(name);
+        product.setCategory(category);
+        product.setWeight(weight);
+        product.setProductCount(productCount);
+        product.setPrice(price);
+        return productRepository.save(product);
+    }
+
+    @Override
+    public Product createProductWithConstructor(Product product){
+        return productRepository.save(product);
     }
 }

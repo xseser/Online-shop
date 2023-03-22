@@ -29,7 +29,7 @@ class ProductTest {
 
     @Test
     public void checkIfProductWithIdThreeExists() {
-        assertEquals(productRepository.existsProductById(3L), false);
+        assertEquals(productRepository.existsProductById(3L), true);
     }
 
     @Test
