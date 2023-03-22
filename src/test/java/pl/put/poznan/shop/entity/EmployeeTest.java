@@ -19,4 +19,9 @@ class EmployeeTest {
     public void checkIfEmployeeWithIdOneExists(){
         assertEquals(employeeRepository.existsEmployeeById(1L), true);
     }
+
+    @Test
+    public void checkIfEmployeeWithIdOneHasNameAnna(){
+        assertEquals(employeeRepository.findEmployeeById(1L).toString(), "Anna");
+    }
 }

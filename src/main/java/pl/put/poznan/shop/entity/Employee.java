@@ -20,7 +20,7 @@ public class Employee {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private String text;
+    private String name;
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
@@ -36,4 +36,9 @@ public class Employee {
 
     @Column(name = "hourly_rate")
     private Long hourlyRate;
+
+    @Override
+    public String toString(){
+        return "%s".formatted(name);
+    }
 }
