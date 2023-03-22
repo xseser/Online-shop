@@ -18,4 +18,9 @@ public class ComplaintType {
 
     @Column(name = "status_name", nullable = false)
     private String statusName;
+
+    @Override
+    public String toString(){
+        return "%s".formatted(statusName);
+    }
 }
