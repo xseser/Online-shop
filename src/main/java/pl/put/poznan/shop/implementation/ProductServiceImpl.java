@@ -22,7 +22,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct(String name, String category, Long weight, LocalDate expirationDate, Long productCount, Double price) {
+    public Product createProduct(String name, String category, Long weight, LocalDate expirationDate,
+                                 Long productCount, Double price) {
         Product product = new Product();
         product.setName(name);
         product.setCategory(category);
@@ -34,7 +35,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProductWithConstructor(Product product){
+    public void deleteProduct(Product product) {
+        productRepository.deleteById(product.getId());
+    }
+
+    @Override
+    public Product createProductWithConstructor(Product product) {
         return productRepository.save(product);
     }
 }

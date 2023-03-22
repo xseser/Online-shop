@@ -12,5 +12,7 @@ public interface ProductService {
     Product createProduct(String name, String category, Long weight, LocalDate expirationDate,
                           Long productCount, Double price);
 
+    void deleteProduct(Product product);
+
     Product createProductWithConstructor(Product product);
 }
