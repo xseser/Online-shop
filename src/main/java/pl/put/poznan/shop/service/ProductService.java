@@ -14,5 +14,5 @@ public interface ProductService {
 
     void deleteProduct(Product product);
 
-    Product createProductWithConstructor(Product product);
+    void createProductWithConstructor(Product product);
 }
