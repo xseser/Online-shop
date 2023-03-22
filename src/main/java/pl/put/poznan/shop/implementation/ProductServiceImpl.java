@@ -22,11 +22,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct(String name, String category, Long weight,Long productCount, Long price) {
+    public Product createProduct(String name, String category, Long weight, LocalDate expirationDate, Long productCount, Double price) {
         Product product = new Product();
         product.setName(name);
         product.setCategory(category);
         product.setWeight(weight);
+        product.setExpirationDate(expirationDate);
         product.setProductCount(productCount);
         product.setPrice(price);
         return productRepository.save(product);

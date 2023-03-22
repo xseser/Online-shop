@@ -9,7 +9,8 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    Product createProduct(String name, String category, Long weight, Long productCount, Long price);
+    Product createProduct(String name, String category, Long weight, LocalDate expirationDate,
+                          Long productCount, Double price);
 
     Product createProductWithConstructor(Product product);
 }

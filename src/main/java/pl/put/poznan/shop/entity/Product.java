@@ -25,7 +25,7 @@ public class Product {
     private String category;
 
     @Column(name = "price", nullable = false)
-    private Long price;
+    private Double price;
 
     @Column(name = "weight", nullable = false)
     private Long weight;
@@ -40,7 +40,7 @@ public class Product {
     private Long productCount;
 
     @Override
-    public String toString(){
+    public String toString() {
         return "%s".formatted(name);
     }
 }
