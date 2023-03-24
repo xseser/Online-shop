@@ -91,6 +91,7 @@ create table online_shop.clients
     password    text    not null,
     client_type integer not null default 0,
     delivery_id integer,
+    permission integer default 0,
 
     constraint pk__clients__id primary key (id),
     constraint uq__clients__user_name unique (user_name),
