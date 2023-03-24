@@ -23,6 +23,6 @@ class ComplaintTypeServiceImplTest {
 
     @Test
     public void test(){
-        System.out.println(complaintTypeService.findAllComplaintTypes());
+        assertNotEquals(complaintTypeService.findAllComplaintTypes(), null);
     }
 }

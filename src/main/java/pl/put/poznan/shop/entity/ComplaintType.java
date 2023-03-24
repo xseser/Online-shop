@@ -21,6 +21,6 @@ public class ComplaintType {
 
     @Override
     public String toString(){
-        return "%s".formatted(statusName);
+        return "%d, %s".formatted(id, statusName);
     }
 }

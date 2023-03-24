@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 import pl.put.poznan.shop.entity.ComplaintType;
 @Repository
 public interface ComplaintTypeRepository extends JpaRepository<ComplaintType, Long> {
+
+    ComplaintType findComplaintTypeByStatusName(String status);
 }
