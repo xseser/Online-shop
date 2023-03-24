@@ -8,13 +8,14 @@ import lombok.Setter;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "employees", schema = "online_shop")
-public class Employee {
+public class Employee{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

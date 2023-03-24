@@ -13,5 +13,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     Employee findEmployeeById(Long id);
 
-    Employee findEmployeeByBirthDate(LocalDate dateOfEmployment);
+    Employee findEmployeeByDateOfEmployment(LocalDate dateOfEmployment);
+
+    List<Employee> findAllByDateOfEmploymentBefore(LocalDate wantedDate);
 }
