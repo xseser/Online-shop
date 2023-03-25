@@ -29,6 +29,6 @@ public class Promotion {
     @Column(name = "percent", nullable = false)
     private Long percent;
 
-    @OneToMany(mappedBy = "promotion_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "promotionId", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Product> products = new LinkedHashSet<>();
 }
