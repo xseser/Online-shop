@@ -39,6 +39,10 @@ public class Product {
     @Column(name = "product_count", nullable = false)
     private Long productCount;
 
+    @ManyToOne
+    @JoinColumn(name = "promotion_id", nullable = false)
+    private Promotion promotionId;
+
     @Override
     public String toString() {
         return "%s".formatted(name);

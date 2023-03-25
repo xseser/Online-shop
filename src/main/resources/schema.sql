@@ -8,13 +8,15 @@ CREATE TABLE online_shop.products
     id                integer not null generated always as identity,
     name              text    not null,
     category          text    not null,
-    price             numeric(10,2) not null,
+    price             numeric not null,
     weight            integer not null,
     expiration_date   date    not null default (current_date + interval '1 year'),
     manufacturer_name text,
     product_count     integer not null default 1,
+    promotion_id      integer not null default 1,
 
-    CONSTRAINT pk__products__id primary key (id)
+    CONSTRAINT pk__products__id primary key (id),
+    constraint fk__products__promotions__promotion_id foreign key (promotion_id) references online_shop.promotions (id)
 );
 
 
@@ -23,11 +25,9 @@ CREATE TABLE online_shop.promotions
     id         integer not null generated always as identity,
     start_date date    not null default current_date,
     end_date   date    not null default (current_date + interval '1 month'),
-    product_id integer not null,
     percent    integer not null,
 
     CONSTRAINT pk__promotions__id primary key (id),
-    CONSTRAINT fk__promotions__products__id foreign key (product_id) references online_shop.products (id)
 );
 
 
@@ -91,14 +91,13 @@ create table online_shop.clients
     password    text    not null,
     client_type integer not null default 0,
     delivery_id integer,
-    permission integer default 0,
+    permission  integer          default 0,
 
     constraint pk__clients__id primary key (id),
     constraint uq__clients__user_name unique (user_name),
     constraint fk__clients__client_types__client_type foreign key (client_type) references online_shop.client_types (id),
     constraint fk__clients__deliveries__delivery_id foreign key (delivery_id) references online_shop.deliveries (id)
 );
-
 
 
 create table online_shop.deliveries
@@ -188,5 +187,4 @@ create table online_shop.receipts
     constraint fk__receipts__payments__payment_id foreign key (payment_id) references online_shop.payments (id)
 );
 
-
-select * from online_shop.products where category = 'sweets' and name = 'cookie'
+GRANT select on all tables in schema online_shop to m110;

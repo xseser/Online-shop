@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,7 +29,6 @@ public class Promotion {
     @Column(name = "percent", nullable = false)
     private Long percent;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
-    private Product product;
+    @OneToMany(mappedBy = "promotion_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Product> products = new LinkedHashSet<>();
 }
