@@ -22,7 +22,7 @@ public class Return {
     @Column(name = "return_date", nullable = false)
     private LocalDate returnDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status", referencedColumnName = "id", nullable = false)
     private ReturnType status;
 }
